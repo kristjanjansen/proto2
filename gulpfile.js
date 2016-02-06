@@ -2,13 +2,28 @@ var path = require('path');
 var fs = require('fs');
 
 var gulp = require('gulp');
+var sass = require('gulp-sass');
+var concat = require('gulp-concat');
 var swig = require('gulp-swig');
-var twig = require('gulp-twig');
 var data = require('gulp-data');
-var dataMatter = require("gulp-data-matter");
 var tap = require('gulp-tap');
 var rename = require('gulp-rename');
 var yaml = require('js-yaml');
+
+gulp.task('sass', function() {
+
+    gulp.src([
+        './styles/*.scss',
+        './components/*.scss',
+        './pages/*.scss',
+    ])
+    .pipe(concat('styles.scss'))
+    .pipe(sass({
+        includePaths: []
+    }))
+    .pipe(gulp.dest('./public/css'));
+
+});
 
 var getYamlData = function(file) {
   name = path.basename(file.path, '.html')
@@ -17,9 +32,13 @@ var getYamlData = function(file) {
   
   if (data.data) {
     sample = {}
-    sample[name] = data.data
+    sample[name] = data.data ? data.data : {}
     return {
-      name: name, title: data.title, desc: data.desc, data: data.data, sample: yaml.safeDump(sample)
+      name: name,
+      title: data.title ? data.title : '',
+      desc: data.desc ? data.desc : '',
+      data: data.data ? data.data : {},
+      sample: data.data ? yaml.safeDump(sample) : ''
     }
   } 
 

@@ -1,0 +1,10 @@
+.component-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5em;
+    margin-bottom: 1em;
+    padding: 10px;
+    border: 1px dashed $gray;
+    opacity: 0.5;
+}
