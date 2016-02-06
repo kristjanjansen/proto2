@@ -1,14 +1,15 @@
 {
   "name": "proto2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp-swig": "^0.8.0"
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-data": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-swig": "^0.8.0",
+    "gulp-tap": "^0.1.3",
+    "js-yaml": "^3.5.2"
   }
 }
