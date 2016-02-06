@@ -13,13 +13,15 @@ var yaml = require('js-yaml');
 gulp.task('sass', function() {
 
     gulp.src([
-        './styles/*.scss',
+        './styles/colors.scss',
+        './styles/variables.scss',
+        './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
         './components/*.scss',
         './pages/*.scss',
     ])
     .pipe(concat('styles.scss'))
     .pipe(sass({
-        includePaths: []
+        includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
     }))
     .pipe(gulp.dest('./public/css'));
 
@@ -64,4 +66,6 @@ gulp.task('components', function() {
       fs.writeFileSync('./pages/index.yaml', yaml.safeDump({files: files}));
     })
 });
+
+gulp.task('default', ['sass', 'components', 'pages']);
 

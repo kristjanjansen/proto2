@@ -1,0 +1,11 @@
+title: Menu
+desc: Global navigation menu
+data:
+  dark: true
+  items:
+    - title: Item One
+      desc: Item One Description
+    - title: Item Two
+      desc: Item Two Description
+
+

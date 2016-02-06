@@ -1,0 +1,19 @@
+.component-menu {
+    background: $blue-midnight;
+    color: $white;
+    display: flex;
+    > .item {
+      padding: 1em;
+      flex: 1;
+      opacity: 0.8;
+      &:hover {
+        background: lighten($blue-midnight, 10%);
+      }
+      a {
+        color: $white;
+      }
+      p {
+        opacity: 0.3;
+      }
+    }
+}

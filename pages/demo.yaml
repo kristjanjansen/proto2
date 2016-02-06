@@ -1,0 +1,16 @@
+menu:
+  dark: true
+  items:
+    - title: Homepage
+      desc: See whats going on today
+    - title: Reservations
+      desc: Manage reservations
+    - title: Details
+      desc: Edit details
+      
+header:
+  title: Site title
+  status: Live
+  desc: >
+    Find out what's happening today and
+    review any recent notifications from our team.

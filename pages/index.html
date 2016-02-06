@@ -2,7 +2,6 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -20,7 +19,7 @@
 
             <p>Add this to <code>yourpage.html</code></p>
 
-            <pre>{{'{%'}} include {{ file.path }} with {{ file.name }} {{ '%}' }}</pre>
+            <pre>{{'{%'}} include "{{ file.path }}" with {{ file.name }} {{ '%}' }}</pre>
 
             <p>Add this to <code>yourpage.yaml</code></p>
 
