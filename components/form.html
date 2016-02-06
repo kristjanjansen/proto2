@@ -1,0 +1,61 @@
+<form class="{{ inline ? 'form-inline' : ''}}">
+
+{% for field in fields %}
+
+    {% if field.type == 'header' %}
+    <h3><span class="icon -{{field.icon}}"></span> {{ field.title}}</h3>
+    {% if field.description %}<div class="alert alert-success"><span class="icon -fa-hand-o-right"> {{ field.description }}</div>{% endif %}
+    {% endif %}
+
+
+    {% if field.type == 'text' %}
+    <div class="form-group">
+      {% if field.title %}<label for="">{{ field.title }}</label>{% endif %} {# TODO: fix index #}
+      <input type="text" class="form-control {{ field.size == 'large' ? 'input-lg' : '' }}" id="" placeholder="{{ field.placeholder }}">
+     </div>
+    {% endif %}
+
+
+    {% if field.type == 'date' %}
+    <div class="form-group">
+      {% if field.title %}<label for="">{{ field.title }}</label>{% endif %} {# TODO: fix index #}
+      <input type="date" class="form-control {{ field.size == 'large' ? 'input-lg' : '' }}" id="">
+     </div>
+    {% endif %}
+
+    {% if field.type == 'select' %}
+    <div class="form-group">
+      {% if field.title %}<label for="field-{{ index }}">{{ field.title }}</label>{% endif %}
+      <select id="field-{{ index }}" class="form-control {{ field.size == 'large' ? 'input-lg' : '' }}">
+        {% for option in field.options %}
+        <option value="">{{ option }}</option>
+        {% endfor %}
+      </select>
+     </div>
+    {% endif %}
+
+
+    {% if field.type == 'checkboxes' %}
+    <div class="form-group">
+    {% if field.title %}<label for="">{{ field.title }}</label>{% endif %}
+    {% for option in field.options %}
+          <input type="checkbox" value="">
+          {{ option }}
+    {% endfor %}
+     </div>
+    {% endif %}
+
+    {% if field.type == 'file' %}
+    <div class="form-group">
+      <input type="file"></span>
+    </div>
+    {% endif %}
+
+
+    {% if field.type == 'button' %}
+    <button class="btn btn-primary" {{ field.disabled ? 'disabled="disabled"' : ''}}>{{ field.title ? field.title : '' }}</button>
+    {% endif %}
+
+{% endfor %}
+
+</form>

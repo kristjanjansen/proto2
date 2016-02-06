@@ -1,0 +1,24 @@
+title: Form
+desc: A form generator
+data:
+  inline: false
+  fields:
+    - type: text
+      title: Example title
+      placeholder: Example placeholder
+    - type: date
+      title: Example title
+      placeholder: Example placeholder
+    - type: select
+      title: Example title
+      options:
+        - First option
+        - Second option
+    - type: checkboxes
+      title: Example title
+      options:
+        - First option
+        - Second option
+    - type: file
+    - type: button
+      title: Save

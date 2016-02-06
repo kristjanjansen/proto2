@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <style>
+        .styleguide-row {
+            margin-top: 3em;
+        }
+        .styleguide-description {
+            opacity: 0.5;
+        }
+        .styleguide-description > h3 {
+            margin-top: -0.2em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    
+{% for file in files %}
+    
+    <div class="row styleguide-row">
+
+        <div class="col-md-5 styleguide-description">
+
+            <h3>{{ file.title}}</h3>
+        
+            <p>{{ file.desc }}</p>
+
+            <p>Add this to <code>yourpage.html</code></p>
+
+            <pre>{{'{%'}} include {{ file.path }} with {{ file.name }} {{ '%}' }}</pre>
+
+            <p>Add this to <code>yourpage.yaml</code></p>
+
+            <pre>{{ file.sample }}</pre>
+
+        </div>
+
+        <div class="col-md-6 col-md-offset-1">
+        
+            {% include file.path with file.data %}
+
+        </div>
+
+    </div>
+
+{% endfor %}    
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+title: Alert
+desc: Use alerts for messages that need immidiate response and are actionable.
+data: 
+  title: Enter a valid email address
+  option: success
