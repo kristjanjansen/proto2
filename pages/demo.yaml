@@ -14,3 +14,7 @@ header:
   desc: >
     Find out what's happening today and
     review any recent notifications from our team.
+
+placeholder:
+  height: 300px
+  title: Here comes the content

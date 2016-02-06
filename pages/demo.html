@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
+{% extends "../layouts/index.html" %}
+
+{% block body %}
+
 <div class="container">
             
     {% include "../components/menu.html" with menu %}
 
     {% include "../components/header.html" with header %}
 
+    {% include "../components/placeholder.html" with placeholder %}
+
 </div>
 
-</body>
-</html>
+{% endblock %}

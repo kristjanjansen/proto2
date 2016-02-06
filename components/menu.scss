@@ -3,7 +3,7 @@
     color: $white;
     display: flex;
     > .item {
-      padding: 1em;
+      padding: 1em 2em;
       flex: 1;
       opacity: 0.8;
       &:hover {
@@ -16,4 +16,10 @@
         opacity: 0.3;
       }
     }
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  .component-menu {
+    flex-direction: column;
+  }
 }
