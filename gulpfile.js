@@ -9,6 +9,17 @@ var data = require('gulp-data');
 var tap = require('gulp-tap');
 var rename = require('gulp-rename');
 var yaml = require('js-yaml');
+var svgstore = require('gulp-svgstore');
+
+gulp.task('svg', function () {
+    return gulp
+        .src('svg/*.svg')
+        .pipe(svgstore())
+        .pipe(rename(function (path) {
+            path.basename = 'icons'
+        }))
+        .pipe(gulp.dest('public/svg'));
+});
 
 gulp.task('sass', function() {
 
@@ -67,5 +78,5 @@ gulp.task('components', function() {
     })
 });
 
-gulp.task('default', ['sass', 'components', 'pages']);
+gulp.task('default', ['sass', 'svg', 'components', 'pages']);
 

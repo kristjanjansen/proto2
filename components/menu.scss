@@ -3,8 +3,10 @@
     color: $white;
     display: flex;
     > .item {
-      padding: 1em 2em;
+      display: flex;
+      align-items: center;
       flex: 1;
+      padding: 1em 2em;
       opacity: 0.8;
       &:hover {
         background: lighten($blue-midnight, 10%);
@@ -14,6 +16,10 @@
       }
       p {
         opacity: 0.3;
+      }
+      > svg {
+        fill: $white;
+        margin-right: 1em;
       }
     }
 }

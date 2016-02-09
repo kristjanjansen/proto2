@@ -3,10 +3,13 @@ menu:
   items:
     - title: Homepage
       desc: See whats going on today
+      icon: rainy
     - title: Reservations
       desc: Manage reservations
+      icon: trash
     - title: Details
       desc: Edit details
+      icon: diamond
       
 header:
   title: Site title

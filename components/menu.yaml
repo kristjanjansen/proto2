@@ -5,7 +5,9 @@ data:
   items:
     - title: Item One
       desc: Item One Description
+      icon: diamond
     - title: Item Two
       desc: Item Two Description
+      icon: maps
 
 
