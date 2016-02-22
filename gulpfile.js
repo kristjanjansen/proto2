@@ -27,7 +27,7 @@ gulp.task('sass', function() {
         './styles/colors.scss',
         './styles/variables.scss',
         './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
-        './components/*.scss',
+        './components/**/*.scss',
         './layouts/*.scss',
     ])
     .pipe(concat('styles.scss'))
@@ -38,44 +38,49 @@ gulp.task('sass', function() {
 
 });
 
-var getYamlData = function(file) {
-  name = path.basename(file.path, '.html')
-  filepath = path.dirname(file.path).split('/').slice(-1)[0] + '/' +  name + '.yaml'
-  data = yaml.safeLoad(fs.readFileSync(filepath, 'utf8'))
-  
-  if (data.data) {
-    sample = {}
-    sample[name] = data.data ? data.data : {}
-    return {
-      name: name,
-      title: data.title ? data.title : '',
-      desc: data.desc ? data.desc : '',
-      data: data.data ? data.data : {},
-      sample: data.data ? yaml.safeDump(sample) : ''
-    }
-  } 
+var getComponentData = function(file) {
 
-  return data
+  data = yaml.safeLoad(fs.readFileSync(file.path.replace('.html', '.yaml'), 'utf8'))
+  name = path.basename(file.path, '.html')
+  
+  sample = {}
+  sample[name] = data.data ? data.data : {}
+  
+  return {
+    name: name,
+    title: data.title ? data.title : '',
+    desc: data.desc ? data.desc : '',
+    data: data.data ? data.data : {},
+    sample: data.data ? yaml.safeDump(sample) : ''
+  }
+
 };
- 
-gulp.task('pages', function() {
-  return gulp.src('./pages/*.html')
-    .pipe(data(getYamlData))
-    .pipe(swig())
-    .pipe(gulp.dest('public'));
-});
+
+
+getPageData = function(file) {
+
+  return yaml.safeLoad(fs.readFileSync(file.path.replace('.html', '.yaml'), 'utf8'))
+
+};
 
 gulp.task('components', function() {
   files = []
-  return gulp.src('./components/*.html')
-    .pipe(data(getYamlData))
+  return gulp.src('./components/**/*.html')
+    .pipe(data(getComponentData))
     .pipe(tap(function(file) {
-      file.data.path = '../components/' + path.basename(file.path),
+      file.data.path = '../components/' + path.basename(file.path, '.html') + '/' + path.basename(file.path),
       files.push(file.data)  
      }))
     .on('end', function() {  
       fs.writeFileSync('./pages/index.yaml', yaml.safeDump({files: files}));
     })
+});
+
+gulp.task('pages', function() {
+  return gulp.src('./pages/*.html')
+    .pipe(data(getPageData))
+    .pipe(swig())
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('default', ['sass', 'svg', 'components', 'pages']);
