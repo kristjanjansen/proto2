@@ -27,7 +27,7 @@ gulp.task('sass', function() {
         './styles/colors.scss',
         './styles/variables.scss',
         './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
-        './components/*.scss',
+        './components/**/*.scss',
         './layouts/*.scss',
     ])
     .pipe(concat('styles.scss'))
