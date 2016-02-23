@@ -1,13 +1,10 @@
 title: Menu
 desc: Global navigation menu
 data:
-  dark: true
-  items:
-    - title: Item One
-      desc: Item One Description
-      icon: diamond
-    - title: Item Two
-      desc: Item Two Description
-      icon: maps
+  left_menu:
+    - icon: menu
+  right_menu:
+    - icon: user
+    - icon: cart
 
 

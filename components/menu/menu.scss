@@ -1,31 +1,21 @@
 .component-menu {
-    background: $blue-midnight;
-    color: $white;
+    
     display: flex;
-    > .item {
-      display: flex;
-      align-items: center;
-      flex: 1;
-      padding: 1em 2em;
-      opacity: 0.8;
-      &:hover {
-        background: lighten($blue-midnight, 10%);
-      }
-      a {
-        color: $white;
-      }
-      p {
-        opacity: 0.3;
-      }
-      > svg {
-        fill: $white;
-        margin-right: 1em;
-      }
-    }
-}
+    height: $spacer * 5;
+    border-bottom: 3px solid $gray-medium;
+    justify-content: space-between;
+    align-items: center;
 
-@media screen and (max-width: 48em) {
-  .component-menu {
-    flex-direction: column;
-  }
+    > .left > a {
+        margin-right: $spacer / 2;
+    }
+
+    > .right > a {
+        margin-left: $spacer / 2;
+    }
+
+    svg {
+        fill: $gray-medium;
+    }
+
 }
