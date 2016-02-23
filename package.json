@@ -2,6 +2,7 @@
   "name": "proto2",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
     "bootstrap-sass": "^3.3.6",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",

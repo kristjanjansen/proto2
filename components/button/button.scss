@@ -1,0 +1,5 @@
+.component-button {
+    @extend .btn;
+    @extend .btn-default;
+    text-transform: uppercase;
+}

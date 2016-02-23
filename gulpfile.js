@@ -26,13 +26,13 @@ gulp.task('sass', function() {
     gulp.src([
         './styles/colors.scss',
         './styles/variables.scss',
-        './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
+        './node_modules/bootstrap/scss/bootstrap.scss',
         './components/**/*.scss',
         './layouts/*.scss',
     ])
     .pipe(concat('styles.scss'))
     .pipe(sass({
-        includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
+        includePaths: ['./node_modules/bootstrap/scss']
     }))
     .pipe(gulp.dest('./public/css'));
 

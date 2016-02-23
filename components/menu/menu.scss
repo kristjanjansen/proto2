@@ -24,7 +24,7 @@
     }
 }
 
-@media screen and (max-width: $screen-xs-max) {
+@media screen and (max-width: 48em) {
   .component-menu {
     flex-direction: column;
   }
