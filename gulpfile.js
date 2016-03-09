@@ -64,6 +64,7 @@ gulp.task('sass', function() {
     gulp.src([
         './styles/colors.scss',
         './styles/variables.scss',
+        './node_modules/bootstrap/scss/_variables.scss',
         './node_modules/bootstrap/scss/bootstrap.scss',
         './components/**/*.scss',
         './layouts/*.scss',
@@ -78,7 +79,10 @@ gulp.task('sass', function() {
 
 gulp.task('svg', function () {
     return gulp
-        .src('svg/*.svg')
+        .src([
+          './node_modules/material-design-icons/**/production/*_24px.svg',
+          '!./node_modules/material-design-icons/**/production/ic_rv_hookup_24px.svg'
+        ])
         .pipe(svgstore())
         .pipe(rename(function (path) {
             path.basename = 'icons'
@@ -86,5 +90,5 @@ gulp.task('svg', function () {
         .pipe(gulp.dest('public/svg'));
 });
 
-gulp.task('default', ['components', 'pages', 'sass', 'svg']);
+gulp.task('default', ['components', 'pages', 'sass']);
 

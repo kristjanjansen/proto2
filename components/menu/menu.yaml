@@ -2,9 +2,9 @@ title: Menu
 desc: Global navigation menu
 data:
   left_menu:
-    - icon: menu
+    - icon: ic_menu_24px
   right_menu:
-    - icon: user
-    - icon: cart
+    - icon: ic_person_24px
+    - icon: ic_favorite_border_24px
 
 
