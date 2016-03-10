@@ -68,6 +68,7 @@ gulp.task('sass', function() {
         './node_modules/bootstrap/scss/bootstrap.scss',
         './components/**/*.scss',
         './layouts/*.scss',
+        './pages/*.scss',
     ])
     .pipe(concat('styles.scss'))
     .pipe(sass({

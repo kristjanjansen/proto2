@@ -1,14 +1,15 @@
 title: Form
 desc: A form generator
 data:
-  inline: false
   fields:
     - type: text
       title: Example title
       placeholder: Example placeholder
-    - type: date
+    - type: buttongroup
       title: Example title
-      placeholder: Example placeholder
+      options:
+        - First option
+        - Second option
     - type: select
       title: Example title
       options:

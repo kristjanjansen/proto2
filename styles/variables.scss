@@ -1,10 +1,12 @@
+// Flexbox
+
+$enable-flex: false;
+
 // Text
 
 $font-size-base: 1rem;
 
 // Headers
-
-$headings-font-weight: bold;
 
 $font-size-h1:  2.5rem;
 $font-size-h2: 2rem;
@@ -20,11 +22,20 @@ $border-radius-sm: 0rem;
 
 // Brand colors
 
-$brand-primary: $gray-dark;
+$brand-primary: $gray-darker;
 
 $brand-success: $green;
 $brand-info: $blue-mild;
 $brand-warning: $yellow;
 $brand-danger: $red-medium;
 
+// Buttons
+
+$btn-secondary-color:            $gray-dark;
+$btn-secondary-bg:               $gray-lightest;
+$btn-secondary-border:           $gray-dark;
+
+// Links
+
+$link-decoration: underline;
 

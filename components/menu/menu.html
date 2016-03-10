@@ -1,31 +1,45 @@
 <div class="component-menu">
 
+    {% if left %}
+
     <div class="left">
 
-    {% for item in left_menu %}
+    {% for item in left %}
         
-        <a href="{{ item.url }}">
-
             {% include "../../components/icon/icon.html" with item %}
                   
-        </a>
-
+    
     {% endfor %}
-   
+
     </div>
+   
+    {% endif %}
+
+
+    {% if center.image %}
+
+    <div class="center" style="width: 50%;" >
+
+        <img src="{{ center.image }}" style="width: 100%;"/>
+
+    </div>
+
+    {% endif %}
+
+    {% if right %}
 
     <div class="right">
 
-    {% for item in right_menu %}
+    {% for item in right %}
         
-        <a href="{{ item.url }}">
-
             {% include "../../components/icon/icon.html" with item %}
                   
-        </a>
-
+    
     {% endfor %}
 
     </div>
+
+    {% endif %}
+
 
 </div>

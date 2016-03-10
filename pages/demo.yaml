@@ -1,23 +1,78 @@
 menu:
-  dark: true
-  items:
-    - title: Homepage
-      desc: See whats going on today
-      icon: rainy
-    - title: Reservations
-      desc: Manage reservations
-      icon: trash
-    - title: Details
-      desc: Edit details
-      icon: diamond
-      
-header:
-  title: Site title
-  status: Live
-  desc: >
-    Find out what's happening today and
-    review any recent notifications from our team.
+  center:
+    image: https://www.hansapost.ee/gfx/hansapost-logo-ee.png
+  right:
+    - icon: ic_person_24px
+    - icon: ic_settings_input_composite_24px
+    - icon: ic_favorite_24px
+    - icon: ic_shopping_cart_24px
 
 placeholder:
-  height: 300px
-  title: Here comes the content
+  title: Loo konto ja hakka tulevikus koguma boonust! / Logi sisse / Loo konto
+
+form:
+  fields:
+    - type: buttongroup
+      title: Makseviis
+      options:
+        - title: Kättesaamisel
+          active: true
+        - title: Järelmaks
+    - type: buttongroup
+      title: Tarneviis
+      options:
+        - title: Omniva kuller
+          active: true
+        - title: Tulen ise järele
+    - type: buttongroup
+      title: Kliendi tüüp
+      options:
+        - title: Eraklient
+          active: true
+        - title: Ariklient
+    - type: header
+      title: Kontaktandmed
+    - type: text2
+      title1: Eesnimi
+      title2: Perenimi
+      large: true
+    - type: text
+      title: E-mail
+      large: true
+    - type: text
+      title: Mobiiltelefon
+      large: true
+    - type: buttongroup
+      title: Suhtluskeel
+      options:
+        - title: Eesti keel
+          active: true
+        - title: Vene keel
+    - type: header
+      title: Aadress
+    - type: checkboxes
+      options:
+        - Soovin arvet teisele aadressile
+    - type: select
+      options:
+        - Vali maakond
+        - ...
+    - type: select
+      options:
+        - Vali linn / vald
+        - ...
+    - type: select
+      options:
+        - Vali alev / küla
+        - ...
+    - type: text
+      title: Tänav / talu
+    - type: text3
+      title1: Maja nr.
+      title2: Korteri nr.
+      title3: Postiindeks
+    - type: checkboxes
+      options:
+        - Olen tutvunud <a href="">kasutustingimustega</a>
+    - type: button
+      title: Kinnitan tellimuse →

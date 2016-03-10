@@ -1,19 +1,10 @@
 .component-menu {
     
     display: flex;
-    height: $spacer * 5;
-    border-bottom: 3px solid $gray-medium;
+    height: $spacer * 4;
     justify-content: space-between;
     align-items: center;
-
-    > .left > a {
-        margin-right: $spacer / 2;
-    }
-
-    > .right > a {
-        margin-left: $spacer / 2;
-    }
-
+    
     svg {
         fill: $gray-medium;
     }
