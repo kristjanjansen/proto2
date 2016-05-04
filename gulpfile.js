@@ -11,33 +11,6 @@ var rename = require('gulp-rename');
 var yaml = require('js-yaml');
 var svgstore = require('gulp-svgstore');
 
-gulp.task('svg', function () {
-    return gulp
-        .src('svg/*.svg')
-        .pipe(svgstore())
-        .pipe(rename(function (path) {
-            path.basename = 'icons'
-        }))
-        .pipe(gulp.dest('public/svg'));
-});
-
-gulp.task('sass', function() {
-
-    gulp.src([
-        './styles/colors.scss',
-        './styles/variables.scss',
-        './node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
-        './components/**/*.scss',
-        './layouts/*.scss',
-    ])
-    .pipe(concat('styles.scss'))
-    .pipe(sass({
-        includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets']
-    }))
-    .pipe(gulp.dest('./public/css'));
-
-});
-
 var getComponentData = function(file) {
 
   data = yaml.safeLoad(fs.readFileSync(file.path.replace('.html', '.yaml'), 'utf8'))
@@ -63,6 +36,9 @@ getPageData = function(file) {
 
 };
 
+// Iterate over components, extract their sample data
+// and write everything to the YAML index file
+
 gulp.task('components', function() {
   files = []
   return gulp.src('./components/**/*.html')
@@ -83,5 +59,37 @@ gulp.task('pages', function() {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('default', ['sass', 'svg', 'components', 'pages']);
+gulp.task('sass', function() {
+
+    gulp.src([
+        './styles/colors.scss',
+        './styles/variables.scss',
+        './node_modules/bootstrap/scss/_variables.scss',
+        './node_modules/bootstrap/scss/bootstrap.scss',
+        './components/**/*.scss',
+        './layouts/*.scss',
+        './pages/*.scss',
+    ])
+    .pipe(concat('styles.scss'))
+    .pipe(sass({
+        includePaths: ['./node_modules/bootstrap/scss']
+    }))
+    .pipe(gulp.dest('./public/css'));
+
+});
+
+gulp.task('svg', function () {
+    return gulp
+        .src([
+          './node_modules/material-design-icons/**/production/*_24px.svg',
+          '!./node_modules/material-design-icons/**/production/ic_rv_hookup_24px.svg'
+        ])
+        .pipe(svgstore())
+        .pipe(rename(function (path) {
+            path.basename = 'icons'
+        }))
+        .pipe(gulp.dest('public/svg'));
+});
+
+gulp.task('default', ['components', 'pages', 'sass']);
 

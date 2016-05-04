@@ -1,13 +1,14 @@
 title: Menu
 desc: Global navigation menu
 data:
-  dark: true
-  items:
-    - title: Item One
-      desc: Item One Description
-      icon: diamond
-    - title: Item Two
-      desc: Item Two Description
-      icon: maps
+  left:
+    - icon: ic_menu_24px
+  center:
+    image: https://www.hansapost.ee/gfx/hansapost-logo-ee.png
+  right:
+    - icon: ic_person_24px
+    - icon: ic_settings_input_composite_24px
+    - icon: ic_favorite_24px
+    - icon: ic_shopping_cart_24px
 
 

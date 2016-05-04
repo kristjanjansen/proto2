@@ -1,31 +1,12 @@
 .component-menu {
-    background: $blue-midnight;
-    color: $white;
+    
     display: flex;
-    > .item {
-      display: flex;
-      align-items: center;
-      flex: 1;
-      padding: 1em 2em;
-      opacity: 0.8;
-      &:hover {
-        background: lighten($blue-midnight, 10%);
-      }
-      a {
-        color: $white;
-      }
-      p {
-        opacity: 0.3;
-      }
-      > svg {
-        fill: $white;
-        margin-right: 1em;
-      }
+    height: $spacer * 4;
+    justify-content: space-between;
+    align-items: center;
+    
+    svg {
+        fill: $gray-medium;
     }
-}
 
-@media screen and (max-width: $screen-xs-max) {
-  .component-menu {
-    flex-direction: column;
-  }
 }
