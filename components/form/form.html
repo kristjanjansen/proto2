@@ -1,107 +1,111 @@
 <form class="{{ inline ? 'form-inline' : ''}}">
 
-{% for field in fields %}
+  {% for field in fields %}
 
-    {% if field.type == 'header' %}
-      <h4 class="card-header">{{ field.title }}</h4>
-    {% endif %}
+  {% if field.type == 'header' %}
 
-    {% if field.type == 'text' %}
-    <div class="form-group">
-      {% if field.title %}<label for="">{{ field.title | safe }}</label>{% endif %}
-      <input type="text" class="form-control {% if field.large %}form-control-lg{% endif %}" id="" placeholder="{{ field.placeholder }}">
-     </div>
-    {% endif %}
+  <h4 class="card-header">{{ field.title }}</h4>
 
-    {% if field.type == 'text2' %}
+  {% endif %}
 
-    <div class="row form-group">
-      <div class="col-xs-6">
+  {% if field.type == 'text' %}
+
+  <div class="form-group">
+    {% if field.title %}<label for="">{{ field.title | safe }}</label>{% endif %}
+    <input type="text" class="form-control {% if field.large %}form-control-lg{% endif %}" id="" placeholder="{{ field.placeholder }}">
+  </div>
+
+  {% endif %}
+
+  {% if field.type == 'text2' %}
+
+  <div class="row form-group">
+    <div class="col-xs-6">
       {% if field.title1 %}<label for="">{{ field.title1 | safe }}</label>{% endif %}
       <input type="text" class="form-control {% if field.large %}form-control-lg{% endif %}" id="" placeholder="{{ field.placeholder2 }}">
-       </div>
-      <div class="col-xs-6">
+    </div>
+    <div class="col-xs-6">
       {% if field.title2 %}<label for="">{{ field.title2 | safe }}</label>{% endif %}
       <input type="text" class="form-control {% if field.large %}form-control-lg{% endif %}" id="" placeholder="{{ field.placeholder2 }}">
-       </div>
-       </div>
-      
-    {% endif %}
+    </div>
+  </div>
 
-        {% if field.type == 'text3' %}
+  {% endif %}
 
-    <div class="row form-group">
-      <div class="col-xs-4">
+  {% if field.type == 'text3' %}
+
+  <div class="row form-group">
+    <div class="col-xs-4">
       {% if field.title1 %}<label for="">{{ field.title1 | safe }}</label>{% endif %}
       <input type="text" class="form-control {% if field.large %}form-control-lg{% endif %}" id="" placeholder="{{ field.placeholder2 }}">
-       </div>
-      <div class="col-xs-4">
+    </div>
+    <div class="col-xs-4">
       {% if field.title2 %}<label for="">{{ field.title2 | safe }}</label>{% endif %}
       <input type="text" class="form-control {% if field.large %}form-control-lg{% endif %}" id="" placeholder="{{ field.placeholder2 }}">
-       </div>
-             <div class="col-xs-4">
+    </div>
+    <div class="col-xs-4">
       {% if field.title3 %}<label for="">{{ field.title3 | safe }}</label>{% endif %}
       <input type="text" class="form-control {% if field.large %}form-control-lg{% endif %}" id="" placeholder="{{ field.placeholder3 }}">
-       </div>
-       </div>
-      
-    {% endif %}
+    </div>
+  </div>
 
-    {% if field.type == 'select' %}
-    <div class="form-group">
-      {% if field.title %}<label for="field-{{ index }}">{{ field.title | safe }}</label>{% endif %}
-      <select id="field-{{ index }}" class="form-control">
-        {% for option in field.options %}
-        <option value="">{{ option }}</option>
-        {% endfor %}
-      </select>
-     </div>
-    {% endif %}
+  {% endif %}
+
+  {% if field.type == 'select' %}
+  <div class="form-group">
+    {% if field.title %}<label for="field-{{ index }}">{{ field.title | safe }}</label>{% endif %}
+    <select id="field-{{ index }}" class="form-control">
+      {% for option in field.options %}
+      <option value="">{{ option.title }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
 
 
-    {% if field.type == 'checkboxes' %}
-    <div class="form-group">
+  {% if field.type == 'checkboxes' %}
+  <div class="form-group">
     {% if field.title %}<label for="">{{ field.title | safe }}</label>{% endif %}
     {% for option in field.options %}
-          <input type="checkbox" value="">
-          {{ option | safe }}
+    <input type="checkbox" value="">
+    {{ option.title | safe }}
     {% endfor %}
-     </div>
-    {% endif %}
+  </div>
+  {% endif %}
 
-    {% if field.type == 'file' %}
-    <div class="form-group">
-      <input type="file"></span>
-    </div>
-    {% endif %}
+  {% if field.type == 'file' %}
+  <div class="form-group">
+    <input type="file"></span>
+  </div>
+  {% endif %}
 
 
-    {% if field.type == 'buttongroup' %}
-    
-        <div class="form-group">
+  {% if field.type == 'buttongroup' %}
+
+  <div class="form-group">
 
     {% if field.title %}<label for="">{{ field.title | safe }}</label>{% endif %}
 
     <div class="btn-group" data-toggle="buttons" style="display: flex;">
-        {% for option in field.options %}
-        <label class="btn btn-secondary btn-wide {%if option.active %}active{% endif %}" style="flex: 1;">
-            <input type="radio" name="options" id="option1" autocomplete="off" > {{ option.title }}
-        </label>
+      {% for option in field.options %}
+      <label class="btn btn-secondary btn-wide {%if option.active %}active{% endif %}" style="flex: 1;">
+        <input type="radio" name="options" id="option1" autocomplete="off" > {{ option.title }}
+      </label>
       {% endfor %}
     </div>
-    </div>
+  </div>
 
-    {% endif %}
+  {% endif %}
 
 
-    {% if field.type == 'button' %}
-              <div class="form-group">
+  {% if field.type == 'button' %}
+  <div class="form-group">
 
-      {% include "../../components/button/button.html" with {'title': field.title} %}
-        </div>
+    {% include "../../components/button/button.html" with {'title': field.title} %}
+  </div>
 
-    {% endif %}
+  {% endif %}
 
-{% endfor %}
+  {% endfor %}
 
 </form>

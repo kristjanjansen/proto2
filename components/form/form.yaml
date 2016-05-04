@@ -8,18 +8,18 @@ data:
     - type: buttongroup
       title: Example title
       options:
-        - First option
-        - Second option
+        - title: First option
+        - title: Second option
     - type: select
       title: Example title
       options:
-        - First option
-        - Second option
+        - title: First option
+        - title: Second option
     - type: checkboxes
       title: Example title
       options:
-        - First option
-        - Second option
+        - title: First option
+        - title: Second option
     - type: file
     - type: button
       title: Save
