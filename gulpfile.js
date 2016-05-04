@@ -66,6 +66,7 @@ gulp.task('sass', function() {
         './styles/variables.scss',
         './node_modules/bootstrap/scss/_variables.scss',
         './node_modules/bootstrap/scss/bootstrap.scss',
+        './styles/styles.scss',
         './components/**/*.scss',
         './layouts/*.scss',
         './pages/*.scss',
