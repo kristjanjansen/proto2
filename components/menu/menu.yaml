@@ -4,7 +4,7 @@ data:
   left:
     - icon: ic_menu_24px
   center:
-    image: https://www.hansapost.ee/gfx/hansapost-logo-ee.png
+    image: 
   right:
     - icon: ic_person_24px
     - icon: ic_settings_input_composite_24px

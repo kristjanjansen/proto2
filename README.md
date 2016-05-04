@@ -10,4 +10,12 @@ npm install
 gulp
 ```
 
-Now you can point yourself to ```./public``` folder
+### Sample pages
+
+* Component index: ```./public/index.html```
+* Sample demo page: ```./public/demo.html```
+
+
+### Icons
+
+You can use all Material Design icons https://design.google.com/icons/ 
